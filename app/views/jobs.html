@@ -1,0 +1,18 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Descripción</th>
+			<th>Requerimientos</th>
+			<th>Constancia</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="job in jobs">
+			<td>{{ job.name }}</td>
+			<td>{{ job.description }}</td>
+			<td>{{ job.requirements }}</td>
+			<td>{{ job.constancy }}</td>
+		</tr>
+	</tbody>
+</table>
