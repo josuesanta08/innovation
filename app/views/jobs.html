@@ -1,18 +1,59 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>Descripción</th>
-			<th>Requerimientos</th>
-			<th>Constancia</th>
+			<th style="width: 12%;">Nombre</th>
+			<th style="width: 33%;">Descripción</th>
+			<th style="width: 30%;">Requerimientos</th>
+			<th style="width: 25%;">Constancia por año</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="job in jobs">
 			<td>{{ job.name }}</td>
 			<td>{{ job.description }}</td>
-			<td>{{ job.requirements }}</td>
-			<td>{{ job.constancy }}</td>
+			<td>
+				<ul>
+					<li ng-repeat="cert in job.requirements.certifications">
+						<p>{{ cert.quantity }} certificaciones relacionadas con:</p>
+						<ul>
+							<li ng-repeat="topic in cert.topics">
+								{{ topic }}
+							</li>
+						</ul>
+					</li>
+					<li>
+						Haber trabajado en {{ job.requirements.projects }} proyectos de tecnologías diferentes e industrias diferentes.
+					</li>
+					<li>
+						{{ job.requirements.yearsOfExperience }} años de experiencia laboral.
+					</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li ng-if="job.constancy.publications != null">
+						{{ job.constancy.publications }} publicaciones
+					</li>
+					<li ng-if="job.constancy.objectives != null">
+						{{ job.constancy.objectives }} objetivos
+					</li>
+					<li ng-if="job.constancy.successFactor != null">
+						{{ job.constancy.successFactor }} mínimo de success factor
+					</li>
+					<li ng-if="job.constancy.architectureContributions != null">
+						{{ job.constancy.architectureContributions }} aportes de arquitectura sustanciales
+					</li>
+					<li ng-if="job.constancy.productivityPKI != null">
+						{{ job.constancy.productivityPKI }} PKIs que mantengan productividad o la mejoren
+					</li>
+					<li ng-if="job.constancy.internalWorkshops != null">
+						{{ job.constancy.internalWorkshops }} talleres/clases internas
+					</li>
+					<li ng-if="job.constancy.largeScaleTalks != null">
+						{{ job.constancy.largeScaleTalks }} exposiciones o charlas de gran escala
+					</li>
+				</ul>
+			</td>
 		</tr>
 	</tbody>
 </table>
