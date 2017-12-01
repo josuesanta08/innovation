@@ -34,6 +34,11 @@ angular
         controller: 'JobsCtrl',
         controllerAs: 'jobs'
       })
+      .when('/comparisons', {
+        templateUrl: 'views/comparisons.html',
+        controller: 'ComparisonsCtrl',
+        controllerAs: 'comparisons'
+      })
       .otherwise({
         redirectTo: '/'
       });
