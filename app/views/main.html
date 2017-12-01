@@ -1,7 +1,15 @@
-<div class="jumbotron" ng-repeat="user in users">
-  <h4>{{ user.name }}</h4>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="Allan">
-  </p>
-  <p><span>Puesto: {{ user.job }}</span></p>
+<div class="input-group search-container">
+  <input type="text" class="form-control" placeholder="Buscar" ng-model="filter.name" aria-describedby="basic-addon2">
+  <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
+</div>
+<div class="row">
+  <div class="col-sm-4" ng-repeat="user in users | filter:filter.name">
+    <div class="jumbotron">
+      <h4>{{ user.name }}</h4>
+      <p class="lead">
+        <img src="images/yeoman.png" alt="Allan">
+      </p>
+      <p><span>Puesto: {{ user.job }}</span></p>
+    </div>
+  </div>
 </div>
