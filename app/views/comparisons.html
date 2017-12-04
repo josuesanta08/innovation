@@ -11,11 +11,42 @@
     <tbody>
         <tr>
             <td>
-                {{ job.requirements }}
+                <ul>
+                    <li ng-repeat="cert in job.requirements.certifications">
+                        <p><span class="glyphicon {{ cert.iconClass }}"></span> {{ cert.quantity }} certificaciones relacionadas con:</p>
+                        <ul>
+                            <li ng-repeat="topic in cert.topics">
+                                {{ topic }}
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="glyphicon {{ job.requirements.projectsIconClass }}"></span> Haber trabajado en {{ job.requirements.projects }} proyectos de tecnologías diferentes e industrias diferentes.
+                    </li>
+                    <li>
+                        <span class="glyphicon {{ job.requirements.yearsIconClass }}"></span> {{ job.requirements.yearsOfExperience }} años de experiencia laboral.
+                    </li>
+                </ul>
             </td>
             <td>
-                {{ user.achievements }}
+                <ul>
+                    <li ng-repeat="cert in user.achievements.certifications">
+                        {{ cert.quantity }} certificaciones relacionadas con {{ cert.topic }}
+                    </li>
+                    <li>
+                        {{ user.achievements.projects.length }} proyectos de tecnologías diferentes e industrias diferentes.
+                    </li>
+                    <li>
+                        {{ user.achievements.yearsOfExperience }} años de experiencia laboral.
+                    </li>
+                </ul>
             </td>
         </tr>
     </tbody>
 </table>
+<h3>{{ achievedItems }} Achieved items of {{ totalRequiredItems }}</h3>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{ achievedPercentage }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ achievedPercentage }}%">
+    <span class="sr-only">{{ achievedPercentage }}% Complete</span>
+  </div>
+</div>

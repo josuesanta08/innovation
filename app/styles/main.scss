@@ -105,3 +105,15 @@ body {
     padding-right: 0px;
   }
 }
+
+.status-completed {
+    color: green;
+}
+
+.status-in-progress {
+    color: #F5CB01;
+}
+
+.status-pending {
+    color: red;
+}
