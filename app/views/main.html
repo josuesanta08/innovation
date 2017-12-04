@@ -2,14 +2,15 @@
   <input type="text" class="form-control" placeholder="Buscar" ng-model="filter.name" aria-describedby="basic-addon2">
   <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
 </div>
-<div class="row">
-  <div class="col-sm-4" ng-repeat="user in users | filter:filter.name">
+<div class="row collaborators">
+  <div class="col-sm-4 collaborator-container" ng-repeat="user in users | filter:filter.name">
     <div class="jumbotron">
       <h4>{{ user.name }}</h4>
       <p class="lead">
         <img src="images/yeoman.png" alt="Allan">
       </p>
       <p><span>Puesto: {{ user.job }}</span></p>
+      <li class="col-xs-6 knowledge" ng-repeat="technology in user.knowledge track by $index">{{ technology }}</li>
     </div>
   </div>
 </div>

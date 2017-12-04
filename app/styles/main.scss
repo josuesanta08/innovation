@@ -91,3 +91,17 @@ body {
   margin-bottom: 15px;
   max-width: 500px;
 }
+
+.collaborators {
+  display: flex;
+
+  .collaborator-container {
+    display: flex;
+  }
+
+  .knowledge {
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
