@@ -52,6 +52,7 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  width: 100%;
 
   .btn {
     font-size: 21px;
@@ -94,6 +95,7 @@ body {
 
 .collaborators {
   display: flex;
+  flex-wrap: wrap;
 
   .collaborator-container {
     display: flex;
